@@ -3,7 +3,7 @@
 
 # pip与源码安装的两种方式
 ## pip安装
-1. 在ancoda下安装，最后会导致`SSE4.2`以及`AVX`编译问题--虽然机器上有但是不会运用在TensorFlow上。
+1. 在ancoda下安装，最后会导致`SSE4.2`以及`AVX`编译问题--虽然机器上有但是不会运用在TensorFlow上。<br>
 问题显示：
 
 ```
@@ -18,4 +18,20 @@ W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn'
 2. 编译速度：pip安装的远远不如源码安装编译的速度
 
 ## 源码安装
-> 官网链接：
+> 官网链接：`https://www.tensorflow.org/install/install_sources#prepare_environment_for_macos`
+
+克隆TensorFlow项目：<br>
+```
+git clone https://github.com/tensorflow/tensorflow
+
+```
+在`/Users/apple/`下将会生成`tensorflow`文件夹
+
+1. 利用brew安装Google自家的`bazel`编译工具
+```
+
+brew install bazel
+
+```
+
+![bazel安装成功](http://ov443bcri.bkt.clouddn.com/bazel.png)
