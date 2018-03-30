@@ -24,7 +24,7 @@ W tensorflow/core/platform/cpu_feature_guard.cc:45] The TensorFlow library wasn'
 2. 编译速度：pip安装的远远不如源码安装编译的速度
 
 ## 源码安装
-> 官网链接：`https://www.tensorflow.org/install/install_sources#prepare_environment_for_macos`<br>以及 参考文章：<br>
+> 官网链接：`https://www.tensorflow.org/install/install_sources#prepare_environment_for_macos`<br>以及参考文章：<br>
 http://aifuns.cc/2017/11/30/tensorflow-build-install-mac.html
 
 克隆TensorFlow项目：<br>
@@ -34,7 +34,7 @@ git clone https://github.com/tensorflow/tensorflow
 ```
 在`/Users/apple/`下将会生成`tensorflow`文件夹
 
-**注意:**如果之前在anconda中安装了TensorFlow（可以使用`pip list`显示出是否安装），然后可以`pip uninstall tensorflow`卸载掉已经安装的tensorflow
+**注意:**如果之前在anconda中安装了TensorFlow（可以使用`pip list`显示出是否安装），然后可以`pip uninstall tensorflow`卸载掉已经安装的tensorflow
 
 1. 利用brew安装Google自家的`bazel`编译工具
 ```
@@ -42,7 +42,7 @@ git clone https://github.com/tensorflow/tensorflow
 brew install bazel
 
 ```
-当出现这个时表示安装成功：
+当出现这个时表示安装成功：
 ![bazel安装成功](http://ov443bcri.bkt.clouddn.com/bazel.png)
 
 2. `cd tensorflow`进入文件夹，`./configure`开始配置文件--只需要`一路回车`就可以,据说是MBP不支持这些
