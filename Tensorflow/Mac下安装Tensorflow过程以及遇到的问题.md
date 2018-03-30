@@ -54,6 +54,8 @@ brew install bazel
 bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
 ```
 
+***注意:*** 可能出现Xcode问题，后面有解决方案。
+
 4. 生成wheel文件
 ```
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
@@ -72,3 +74,24 @@ pip install wheel文件的名字
 6. 测试
 
 ![](http://ov443bcri.bkt.clouddn.com/Tensflow%E7%A4%BA%E4%BE%8B.png   "Tensflow案例")
+
+# Xcode问题
+> 参考：`https://stackoverflow.com/questions/45276830/xcode-version-must-be-specified-to-use-an-apple-crosstool?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa`
+
+当出现问题：
+```
+ERROR:/private/var/tmp/_bazel_Kakadu/3f0c35881c95d2c43f04614911c03a57/external/local_config_cc/BUILD:49:5: in apple_cc_toolchain rule @local_config_cc//:cc-compiler-darwin_x86_64: Xcode version must be specified to use an Apple CROSSTOOL.
+
+ERROR: Analysis of target '//tensorflow_serving/sources/storage_path:file_system_storage_path_source_proto' failed; build aborted.
+
+I've already tried to use bazel clean and bazel clean --expunge but it didn't help and still Bazel doesn't see my xcode(I suppose) but it's completely installed. I even reinstalled it to make sure that all works fine but the error isn't disappeared
+
+Bazel version installed is Build label: 0.5.2-homebrew Build target: bazel-out/darwin_x86_64-opt/bin/src/main/java/com/google/devtools/build/lib/bazel/BazelServer_deploy.jar Build time: Thu Jul 13 12:29:40 2017 (1499948980) Build timestamp: 1499948980 Build timestamp as int: 1499948980 KakaduDevs-Mac-mini:serving Kakadu$
+```
+解决方案：
+1. bazel clean --expunge
+2. sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+3. sudo xcodebuild -license
+4. bazel clean --expunge
+5. bazel build --config=opt //tensorflow/tools/pip_package:build_pip_package
+
