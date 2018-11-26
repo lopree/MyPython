@@ -37,7 +37,6 @@ while True:
         house_money = house.select(".money")[0].select("b")[0].string
         # 将分割读取好的数据写成一行数据
         csv_writer.writerow(
-            [house_title, house_location, house_type,  house_money, house_url])
-
+            [house_title, house_location, house_type, house_money, house_url])
 
 csv_file.close()
